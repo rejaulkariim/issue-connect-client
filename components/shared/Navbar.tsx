@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <header className="max-w-5xl mx-auto h-16 flex justify-between items-center px-4 md:px-0">
+    <header className="max-w-5xl mx-auto h-16 w-full flex justify-between items-center px-4 md:px-0 sticky top-0 z-50">
       <nav>
         <ul>
           <li>
@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav>
         <ul className="flex items-center gap-4">
           <li>
-            <Link href="/user/discuss">Discuss</Link>
+            <Link href="/user/discuss">Discussions</Link>
           </li>
           <li>
             <Link href="/">Create</Link>
