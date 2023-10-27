@@ -35,7 +35,6 @@ const UserDiscussPage = () => {
       </div>
 
       {/* Chats Discussion */}
-
       <div className="section-padding">
         <div className="mb-2 px-2">
           <h4 className="text-[#075571]">All Messages</h4>
