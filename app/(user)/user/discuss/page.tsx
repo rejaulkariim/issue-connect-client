@@ -1,5 +1,6 @@
 "use client";
 
+import CreateTopicModal from "@/components/CreateTopicModal";
 import Link from "next/link";
 import { BsChat } from "react-icons/bs";
 
@@ -9,18 +10,60 @@ const discuss = [
     title: " How to install next js 14?",
     message:
       "You can install the latest next js 14 app using npx create-next-app@latest command",
+    response: [
+      {
+        id: "1",
+        response: "response",
+      },
+      {
+        id: "2",
+        response: "response",
+      },
+      {
+        id: "3",
+        response: "response",
+      },
+      {
+        id: "4",
+        response: "response",
+      },
+    ],
   },
   {
     id: "2",
     title: " How to install next js 14?",
     message:
       "You can install the latest next js 14 app using npx create-next-app@latest command",
+    response: [
+      {
+        id: "1",
+        response: "response",
+      },
+      {
+        id: "2",
+        response: "response",
+      },
+      {
+        id: "3",
+        response: "response",
+      },
+    ],
   },
   {
     id: "3",
     title: " How to install next js 14?",
     message:
       "You can install the latest next js 14 app using npx create-next-app@latest command",
+    response: [
+      {
+        id: "1",
+        response: "response",
+      },
+      {
+        id: "2",
+        response: "response",
+      },
+    ],
   },
 ];
 
@@ -36,9 +79,15 @@ const UserDiscussPage = () => {
 
       {/* Chats Discussion */}
       <div className="section-padding">
-        <div className="mb-2 px-2">
-          <h4 className="text-[#075571]">All Messages</h4>
+        <div className="flex justify-between items-center px-2 py-4">
+          <div>
+            <h4 className="text-[#075571]">All Messages</h4>
+          </div>
+          <div>
+            <CreateTopicModal />
+          </div>
         </div>
+
         <ul className="flex flex-col gap-4">
           {discuss.map((item) => (
             <Link key={item.id} href={`/user/discuss/${item.id}`}>
@@ -53,8 +102,9 @@ const UserDiscussPage = () => {
                       create-next-app@latest command
                     </p>
                   </div>
-                  <div>
+                  <div className="flex items-center gap-1">
                     <BsChat size={20} />
+                    <span>{item?.response?.length}</span>
                   </div>
                 </div>
               </li>
