@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const Navbar = () => {
   return (
@@ -19,6 +20,11 @@ const Navbar = () => {
           </li>
           <li>
             <Link href="/">Create</Link>
+          </li>
+          <li>
+            <Link href="/user/sign-in">
+              <Button>Sign in</Button>
+            </Link>
           </li>
         </ul>
       </nav>
