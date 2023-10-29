@@ -82,3 +82,7 @@
 .section-padding {
   @apply py-5 md:py-10;
 }
+
+.heading2 {
+  @apply text-xl font-semibold;
+}

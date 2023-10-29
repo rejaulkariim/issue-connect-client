@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 const Navbar = () => {
   const user = false;
   return (
-    <header className="max-w-5xl mx-auto h-16 w-full flex justify-between items-center px-4 md:px-0 sticky top-0 z-50">
+    <header className="bg-white max-w-5xl mx-auto h-16 w-full flex justify-between items-center px-4 md:px-0 sticky top-0 z-50">
       <nav>
         <ul>
           <li>
