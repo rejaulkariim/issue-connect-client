@@ -48,7 +48,7 @@ const UserResponseForm = ({ topicId }: any) => {
           placeholder="Message..."
           {...register("content", { required: true })}
         />
-        {errors.message && (
+        {errors.content && (
           <p className="text-red-500">Message field is required</p>
         )}
       </div>
