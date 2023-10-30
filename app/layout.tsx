@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/ThemeProvider";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import { Toaster } from "@/components/ui/toaster";
@@ -21,14 +22,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <ReactQueryProvider>
-          <ReduxProvider>
-            <Navbar />
-            {children}
-            <Footer />
-            <Toaster />
-          </ReduxProvider>
-        </ReactQueryProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ReactQueryProvider>
+            <ReduxProvider>
+              <Navbar />
+              {children}
+              <Footer />
+              <Toaster />
+            </ReduxProvider>
+          </ReactQueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
