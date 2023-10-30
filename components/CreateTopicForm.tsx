@@ -62,7 +62,7 @@ const CreateTopicForm = () => {
           placeholder="Message..."
           {...register("message", { required: true })}
         />
-        {errors.title && (
+        {errors.message && (
           <p className="text-red-500">Message field is required</p>
         )}
       </div>
