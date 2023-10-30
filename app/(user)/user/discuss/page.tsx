@@ -8,7 +8,6 @@ import { BsChat } from "react-icons/bs";
 const UserDiscussPage = () => {
   const { topics, isLoading } = useFetchTopics();
 
-  console.log(topics);
   return (
     <main className="wrapper section-padding min-h-[calc(100vh-4rem)]">
       {/* Header */}
@@ -32,7 +31,7 @@ const UserDiscussPage = () => {
         <ul className="flex flex-col gap-4">
           {topics.map((item: any) => (
             <Link key={item._id} href={`/user/discuss/${item._id}`}>
-              <li className="h-full w-full cursor-pointer border-2 border-[#075571] rounded-2xl shadow-md hover:shadow-[#075571] transition-colors duration-300 overfloww-hidden">
+              <li className="h-full w-full cursor-pointer border-2 border-[#075571] rounded-2xl shadow-md hover:shadow-[#075571] transition-colors duration-300 overflow-hidden">
                 <div className="px-10 py-4 text-[#075571] flex justify-between items-center gap-4 ">
                   <div className="">
                     <h2 className="text-xl font-semibold">{item.title}</h2>

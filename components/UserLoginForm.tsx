@@ -70,7 +70,9 @@ const UserLoginForm = () => {
         </div>
 
         <div className="mt-4">
-          <Button type="submit">Login</Button>
+          <Button type="submit" className="uppercase">
+            Sign in
+          </Button>
         </div>
 
         <div className="mt-4">

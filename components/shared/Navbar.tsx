@@ -37,7 +37,7 @@ const Navbar = () => {
           {!user ? (
             <li>
               <Link href="/user/sign-in">
-                <Button>Sign in</Button>
+                <Button className="uppercase">Sign in</Button>
               </Link>
             </li>
           ) : (
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <GrNotification size={25} />
               </li>
               <li onClick={handleLogout}>
-                <Button>Logout</Button>
+                <Button className="uppercase">Logout</Button>
               </li>
             </>
           )}

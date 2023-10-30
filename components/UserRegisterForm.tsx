@@ -91,7 +91,9 @@ const UserRegisterForm = () => {
       </div>
 
       <div className="mt-4">
-        <Button type="submit">Sign up</Button>
+        <Button type="submit" className="uppercase">
+          Sign up
+        </Button>
       </div>
 
       <div className="mt-4">
