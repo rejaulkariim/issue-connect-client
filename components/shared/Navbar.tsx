@@ -34,14 +34,6 @@ const Navbar = () => {
       </nav>
       <nav>
         <ul className="flex items-center gap-4">
-          <li>
-            <Link href="/user/discuss">Discussions</Link>
-          </li>
-
-          <li className="cursor-pointer">
-            <GrNotification size={25} />
-          </li>
-
           {!user ? (
             <li>
               <Link href="/user/sign-in">
@@ -49,9 +41,18 @@ const Navbar = () => {
               </Link>
             </li>
           ) : (
-            <li onClick={handleLogout}>
-              <Button>Logout</Button>
-            </li>
+            <>
+              <li>
+                <Link href="/user/discuss">Discussions</Link>
+              </li>
+
+              <li className="cursor-pointer">
+                <GrNotification size={25} />
+              </li>
+              <li onClick={handleLogout}>
+                <Button>Logout</Button>
+              </li>
+            </>
           )}
         </ul>
       </nav>

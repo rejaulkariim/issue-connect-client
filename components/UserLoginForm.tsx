@@ -72,6 +72,14 @@ const UserLoginForm = () => {
         <div className="mt-4">
           <Button type="submit">Login</Button>
         </div>
+
+        <div className="mt-4">
+          {error && (
+            <p className="bg-rose-500/20 rounded-lg p-3 border w-full border-red-500 text-sm">
+              {error}
+            </p>
+          )}
+        </div>
       </form>
     </div>
   );
