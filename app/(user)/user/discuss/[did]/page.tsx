@@ -23,13 +23,18 @@ const DiscussDetailsPage = ({ params }: { params: { did: string } }) => {
   return (
     <main className="wrapper section-padding min-h-[calc(100vh-4rem)]">
       <div>
-        <Button onClick={() => router.back()} variant="default">
+        <Button
+          onClick={() => router.back()}
+          variant="destructive"
+          size="sm"
+          className="rounded-full"
+        >
           <IoIosArrowBack />
         </Button>
       </div>
 
       {/* Chat box */}
-      <div className="border my-10 px-3 md:px-10 py-4 rounded-xl overflow-auto">
+      <div className="border-2 border-muted my-10 px-3 md:px-10 py-4 rounded-xl overflow-auto">
         <div>
           {/* User response */}
           <div className="border-b pb-4">

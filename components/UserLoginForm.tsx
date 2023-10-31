@@ -40,7 +40,7 @@ const UserLoginForm = () => {
   return (
     <div className="border-2 p-4 rounded-2xl">
       {/* Form */}
-      <form className="space-y-2" onSubmit={handleSubmit(onSubmit)}>
+      <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         {/* Email */}
         <div className="space-y-1">
           <Label htmlFor="email">Email</Label>
@@ -49,8 +49,8 @@ const UserLoginForm = () => {
             type="email"
             placeholder="Email"
             autoComplete="email"
-            autoCorrect="off"
             {...register("email", { required: true })}
+            className="paragraph ring-2 ring-muted-foreground"
           />
           {errors.email && (
             <p className="text-red-500">Email field is required</p>
@@ -64,6 +64,7 @@ const UserLoginForm = () => {
             id="password"
             placeholder="Password"
             {...register("password", { required: true })}
+            className="paragraph ring-2 ring-muted-foreground"
           />
           {errors.email && (
             <p className="text-red-500">Email field is required</p>
