@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import useSingleTopicFetch from "@/hooks/useSingleTopicFetch";
 import { formatedDate } from "@/lib/formateDate";
 import { RootState } from "@/store/store";
+import socket from "@/utils/socket";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { IoIosArrowBack } from "react-icons/io";
 import { useSelector } from "react-redux";
@@ -14,6 +15,10 @@ import { useSelector } from "react-redux";
 const DiscussDetailsPage = ({ params }: { params: { did: string } }) => {
   const [isLiked, setIsLiked] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    socket;
+  }, []);
 
   const { topic, isLoading, refetch } = useSingleTopicFetch({
     params: params.did,

@@ -21,7 +21,7 @@ const Navbar = () => {
         </ul>
       </nav>
       <nav>
-        <ul className="flex items-center gap-4">
+        <ul className="flex items-center gap-8">
           {!user ? (
             <li>
               <Link href="/user/sign-in">
@@ -30,9 +30,20 @@ const Navbar = () => {
             </li>
           ) : (
             <>
-              <li>
-                <Link href="/user/discuss">Discussions</Link>
-              </li>
+              {user?.role === "admin" ? (
+                <>
+                  <li>
+                    <Link href="/admin/messages">Messages</Link>
+                  </li>
+                  <li>
+                    <Link href="/admin/users">Users</Link>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link href="/user/discuss">Discussions</Link>
+                </li>
+              )}
 
               <li className="cursor-pointer text-foreground">
                 <IoMdNotificationsOutline

@@ -24,7 +24,6 @@ const UserAccount = () => {
     toast({ title: "Success🎉", description: "You've logged out" });
   }, [dispatch, router]);
 
-  console.log(user);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
