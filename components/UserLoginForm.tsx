@@ -5,6 +5,7 @@ import { roleRouter } from "@/utils/roleRouter";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import Loading from "./Loading";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -71,7 +72,14 @@ const UserLoginForm = () => {
 
         <div className="mt-4">
           <Button type="submit" className="uppercase">
-            Sign in
+            {isLoading ? (
+              <>
+                <Loading />
+                Signing in
+              </>
+            ) : (
+              "Sign in"
+            )}
           </Button>
         </div>
 

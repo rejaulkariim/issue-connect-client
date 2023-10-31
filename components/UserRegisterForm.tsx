@@ -3,6 +3,7 @@
 import { useAxiosPost } from "@/hooks/useAxiosPost";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
+import Loading from "./Loading";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -92,7 +93,14 @@ const UserRegisterForm = () => {
 
       <div className="mt-4">
         <Button type="submit" className="uppercase">
-          Sign up
+          {isLoading ? (
+            <>
+              <Loading />
+              Signing up
+            </>
+          ) : (
+            "Sign up"
+          )}
         </Button>
       </div>
 

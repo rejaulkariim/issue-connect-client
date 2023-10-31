@@ -6,12 +6,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useState } from "react";
 import CreateTopicForm from "./CreateTopicForm";
 import { Button } from "./ui/button";
 
 const CreateTopicModal = () => {
+  const [open, setOpen] = useState<boolean>(false);
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline" size="sm">
           New topic
@@ -24,8 +26,8 @@ const CreateTopicModal = () => {
             Fill out the form below to send your request!
           </DialogDescription>
         </DialogHeader>
-
-        <CreateTopicForm />
+        {/* Form */}
+        <CreateTopicForm setOpen={setOpen} />
       </DialogContent>
     </Dialog>
   );

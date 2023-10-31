@@ -2,11 +2,11 @@
 
 import UserResponseForm from "@/components/UserResponseForm";
 import { Button } from "@/components/ui/button";
+import useSingleTopicFetch from "@/hooks/useSingleTopicFetch";
 import { formatedDate } from "@/lib/formateDate";
 import { RootState } from "@/store/store";
-import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { IoIosArrowBack } from "react-icons/io";
 import { useSelector } from "react-redux";
@@ -15,30 +15,10 @@ const DiscussDetailsPage = ({ params }: { params: { did: string } }) => {
   const [isLiked, setIsLiked] = useState(false);
   const router = useRouter();
 
+  const { topic, isLoading, refetch } = useSingleTopicFetch({
+    params: params.did,
+  });
   const user = useSelector((state: RootState) => state?.user?.user);
-
-  const [data, setData] = useState<any>(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/topic/${params.did}`,
-          {
-            headers: { Authorization: `Bearer ${user?.token}` },
-          }
-        );
-
-        const responseData = response.data;
-
-        setData(responseData);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    }
-
-    fetchData();
-  }, []);
 
   return (
     <main className="wrapper section-padding min-h-[calc(100vh-4rem)]">
@@ -53,7 +33,7 @@ const DiscussDetailsPage = ({ params }: { params: { did: string } }) => {
         <div>
           {/* User response */}
           <div className="border-b pb-4">
-            <h2 className="heading2">{data?.title}</h2>
+            <h2 className="heading2">{topic?.title}</h2>
 
             <div className="flex items-center gap-2 my-2">
               <div className="h-8 w-8 border-2 rounded-full bg-[#075571] flex justify-center items-center">
@@ -62,11 +42,11 @@ const DiscussDetailsPage = ({ params }: { params: { did: string } }) => {
 
               <div className="flex items-center gap-2">
                 <p className="text-sm">{user?.user?.name}</p>
-                <p className="text-sm">{formatedDate(data?.createdAt)}</p>
+                <p className="text-sm">{formatedDate(topic?.createdAt)}</p>
               </div>
             </div>
 
-            <p>{data?.message}</p>
+            <p>{topic?.message}</p>
 
             <div className="flex items-center gap-2">
               <AiFillHeart
@@ -101,7 +81,7 @@ const DiscussDetailsPage = ({ params }: { params: { did: string } }) => {
 
           {/* User response */}
 
-          {data?.responses?.map((item: any) => (
+          {topic?.responses?.map((item: any) => (
             <div className="mt-6 border-b pb-4" key={item._id}>
               <div className="flex items-center gap-2 my-2">
                 <div className="h-8 w-8 border-2 rounded-full bg-[#075571] flex justify-center items-center">
@@ -119,7 +99,7 @@ const DiscussDetailsPage = ({ params }: { params: { did: string } }) => {
           ))}
         </div>
 
-        <UserResponseForm topicId={params.did} />
+        <UserResponseForm topicId={params.did} refetch={refetch} />
       </div>
     </main>
   );

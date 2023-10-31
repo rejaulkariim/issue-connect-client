@@ -16,7 +16,7 @@ type Inputs = {
   message: string;
 };
 
-const CreateTopicForm = () => {
+const CreateTopicForm = ({ setOpen }: any) => {
   // Hooks
   const { axiosPost, isLoading, error } = useAxiosPost();
   const { refetch } = useFetchTopic();
@@ -26,6 +26,7 @@ const CreateTopicForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -34,6 +35,8 @@ const CreateTopicForm = () => {
 
     if (res) {
       refetch();
+      reset();
+      setOpen(false);
       toast({ title: "Success🔥", description: "Your message has been send." });
     }
   };

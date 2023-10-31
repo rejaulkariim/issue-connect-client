@@ -2,6 +2,7 @@ import { useAxiosPost } from "@/hooks/useAxiosPost";
 import { RootState } from "@/store/store";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import Loading from "./Loading";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
@@ -11,7 +12,7 @@ type Inputs = {
   content: string;
 };
 
-const UserResponseForm = ({ topicId }: any) => {
+const UserResponseForm = ({ topicId, refetch }: any) => {
   // Hooks
   const { axiosPost, isLoading, error } = useAxiosPost();
 
@@ -20,6 +21,7 @@ const UserResponseForm = ({ topicId }: any) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -35,6 +37,8 @@ const UserResponseForm = ({ topicId }: any) => {
     console.log("🔥", res);
 
     if (res) {
+      reset();
+      refetch();
       toast({ title: "Success🔥", description: "Message has been send" });
     }
   };
@@ -42,7 +46,7 @@ const UserResponseForm = ({ topicId }: any) => {
     <form className="space-y-4 mt-4" onSubmit={handleSubmit(onSubmit)}>
       {/* Message */}
       <div className="space-y-2">
-        <Label htmlFor="message">Details</Label>
+        <Label htmlFor="message">Details message</Label>
         <Textarea
           id="message"
           placeholder="Message..."
@@ -52,7 +56,16 @@ const UserResponseForm = ({ topicId }: any) => {
           <p className="text-red-500">Message field is required</p>
         )}
       </div>
-      <Button type="submit">Send</Button>
+      <Button type="submit">
+        {isLoading ? (
+          <>
+            <Loading />
+            Sending
+          </>
+        ) : (
+          "Send"
+        )}
+      </Button>
     </form>
   );
 };
