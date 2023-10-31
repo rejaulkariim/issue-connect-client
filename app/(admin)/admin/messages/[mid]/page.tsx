@@ -32,7 +32,7 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
         <div>
           {/* User response */}
           <div className="border-b pb-4">
-            <h2 className="heading2">{topic?.title}</h2>
+            <h2 className="heading3">{topic?.title}</h2>
 
             <div className="flex items-center gap-2 my-2">
               <div className="h-8 w-8 border-2 rounded-full bg-[#075571] flex justify-center items-center">
@@ -45,7 +45,7 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
               </div>
             </div>
 
-            <p>{topic?.message}</p>
+            <p className="paragraph">{topic?.message}</p>
           </div>
 
           {/* Admin response */}
@@ -83,7 +83,7 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
                 </div>
               </div>
 
-              <p>{item.content}</p>
+              <p className="paragraph">{item.content}</p>
             </div>
           ))}
         </div>

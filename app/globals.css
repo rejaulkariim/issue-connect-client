@@ -89,6 +89,9 @@
 .heading2 {
   @apply text-xl font-semibold;
 }
+.heading3 {
+  @apply text-lg font-semibold text-foreground;
+}
 .paragraph {
-  @apply text-sm md:text-base leading-7 text-foreground;
+  @apply text-sm md:text-base leading-7 text-muted-foreground;
 }
