@@ -3,20 +3,20 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const useFetchUser = () => {
+const useTopicFetchAdmin = () => {
   const userStore = useSelector((state: RootState) => state?.user?.user);
 
   const {
     isLoading,
-    data: users = [],
+    data: topics = [],
     error,
     refetch,
   } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["topics"],
     queryFn: async () => {
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/all`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/issue/all`,
           {
             headers: { Authorization: `Bearer ${userStore?.token}` },
           }
@@ -29,7 +29,7 @@ const useFetchUser = () => {
     },
   });
 
-  return { users, isLoading, refetch };
+  return { topics, isLoading, refetch };
 };
 
-export default useFetchUser;
+export default useTopicFetchAdmin;

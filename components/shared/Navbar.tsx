@@ -10,7 +10,7 @@ const Navbar = () => {
   const user = useSelector((state: RootState) => state?.user?.user?.user);
 
   return (
-    <header className="bg-background max-w-5xl mx-auto h-16 w-full flex justify-between items-center px-4 md:px-0 sticky top-0 z-50">
+    <header className="bg-background max-w-5xl mx-auto h-16 w-full flex justify-between items-center px-4  sticky top-0 z-50">
       <nav>
         <ul>
           <li>
