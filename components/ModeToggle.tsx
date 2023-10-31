@@ -28,7 +28,7 @@ const ModeToggle = () => {
         </>
       ) : (
         <>
-          <BiSun size={25} className="rotate-0 scale-100 text-foreground " />
+          <BiSun size={25} className="rotate-0 scale-100 text-primary " />
         </>
       )}
     </Button>

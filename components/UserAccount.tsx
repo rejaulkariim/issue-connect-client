@@ -31,7 +31,7 @@ const UserAccount = () => {
           <p className="text-lg text-white font-bold"> {user?.name[0]}</p>
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-2 border-none">
+      <DropdownMenuContent className="p-3 border-2 border-muted rounded-2xl space-y-2">
         <DropdownMenuLabel>
           <p className="paragraph">{user?.name}</p>
         </DropdownMenuLabel>

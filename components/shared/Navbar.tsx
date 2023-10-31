@@ -15,7 +15,10 @@ const Navbar = () => {
         <ul>
           <li>
             <Link href="/">
-              <h2 className="text-xl font-bold">Issues</h2>
+              <h2 className="heading2 tracking-wide">
+                Trackr
+                <span className="text-primary text-2xl">.</span>
+              </h2>
             </Link>
           </li>
         </ul>

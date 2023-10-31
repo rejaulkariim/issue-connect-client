@@ -29,7 +29,7 @@ const UserPage = () => {
                 } flex items-center justify-center`}
               >
                 <p className="text-lg text-white font-bold uppercase">
-                  {user?.name[0]}
+                  {user?.name?.[0]}
                 </p>
               </div>
               <h3>{user.name}</h3>
