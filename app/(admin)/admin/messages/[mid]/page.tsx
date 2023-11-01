@@ -28,12 +28,10 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
       </div>
 
       {/* Chat box */}
-      <div className="border-2 border-muted my-10 px-3 md:px-10 py-4 rounded-xl overflow-auto">
+      <div className="border-2 border-muted my-10 px-3 md:px-6 py-4 rounded-xl overflow-auto">
         <div>
           {/* User response */}
           <div className="border-b pb-4">
-            <h2 className="heading3">{topic?.title}</h2>
-
             <div className="flex items-center gap-2 my-2">
               <div className="h-8 w-8 border-2 rounded-full bg-[#075571] flex justify-center items-center">
                 <p className="text-white">{user?.user.name[0]}</p>
@@ -44,12 +42,14 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
                 <p className="text-sm">{formatedDate(topic?.createdAt)}</p>
               </div>
             </div>
-
-            <p className="paragraph">{topic?.message}</p>
+            <div>
+              <h2 className="heading3">{topic?.title}</h2>
+              <p className="paragraph">{topic?.message}</p>
+            </div>
           </div>
 
           {/* Admin response */}
-          <div className="mt-6 border-b pb-4">
+          {/* <div className="mt-6 border-b pb-4">
             <div className="flex justify-end items-center gap-2 my-2">
               <div className="h-8 w-8 border-2 rounded-full bg-[#075571] flex justify-center items-center">
                 <p className="text-white">A</p>
@@ -61,12 +61,12 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
               </div>
             </div>
 
-            <p>
+            <p className="items-end">
               Just launched a few weeks ago, already have 200 customers, so
               clearly I hit a nerve. Excited to talk to more customers and
               continuing to add features.
             </p>
-          </div>
+          </div> */}
 
           {/* User response */}
 

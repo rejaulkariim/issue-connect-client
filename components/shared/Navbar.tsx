@@ -1,8 +1,8 @@
 "use client";
 import { RootState } from "@/store/store";
 import Link from "next/link";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import { useSelector } from "react-redux";
+import Notification from "../Notification";
 import UserAccount from "../UserAccount";
 import { Button } from "../ui/button";
 
@@ -24,7 +24,7 @@ const Navbar = () => {
         </ul>
       </nav>
       <nav>
-        <ul className="flex items-center gap-8">
+        <ul className="flex items-center gap-4 md:gap-8">
           {!user ? (
             <li>
               <Link href="/user/sign-in">
@@ -48,13 +48,7 @@ const Navbar = () => {
                 </li>
               )}
 
-              <li className="cursor-pointer text-foreground">
-                <IoMdNotificationsOutline
-                  size={25}
-                  className="text-foreground"
-                />
-              </li>
-
+              <Notification />
               <UserAccount />
             </>
           )}

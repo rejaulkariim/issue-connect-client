@@ -7,6 +7,7 @@ import { Textarea } from "./ui/textarea";
 
 import useFetchTopic from "@/hooks/useTopicFetch";
 import { RootState } from "@/store/store";
+import socket from "@/utils/socket";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { toast } from "./ui/use-toast";
@@ -21,7 +22,10 @@ const CreateTopicForm = ({ setOpen }: any) => {
   const { axiosPost, isLoading, error } = useAxiosPost();
   const { refetch } = useFetchTopic();
 
-  const token = useSelector((state: RootState) => state?.user?.user.token);
+  const user = useSelector((state: RootState) => state?.user?.user);
+  const token = user?.token;
+
+  console.log(user);
 
   const {
     register,
@@ -32,6 +36,8 @@ const CreateTopicForm = ({ setOpen }: any) => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const res = await axiosPost("/api/user/topic/create", { ...data }, token);
+
+    socket.emit("new-topic", { topic: data, user: user?.user });
 
     if (res) {
       refetch();
