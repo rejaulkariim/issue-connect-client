@@ -41,6 +41,9 @@ const Navbar = () => {
                   <li>
                     <Link href="/admin/users">Users</Link>
                   </li>
+                  <li>
+                    <Notification />
+                  </li>
                 </>
               ) : (
                 <li>
@@ -48,7 +51,6 @@ const Navbar = () => {
                 </li>
               )}
 
-              <Notification />
               <UserAccount />
             </>
           )}

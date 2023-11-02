@@ -14,7 +14,7 @@ import { toast } from "./ui/use-toast";
 
 type Inputs = {
   title: string;
-  message: string;
+  subject: string;
 };
 
 const CreateTopicForm = ({ setOpen }: any) => {
@@ -65,14 +65,14 @@ const CreateTopicForm = ({ setOpen }: any) => {
 
       {/* Message */}
       <div className="space-y-2">
-        <Label htmlFor="message">Details</Label>
+        <Label htmlFor="subject">Subject</Label>
         <Textarea
-          id="message"
-          placeholder="Message..."
-          {...register("message", { required: true })}
+          id="subject"
+          placeholder="Subject..."
+          {...register("subject", { required: true })}
         />
-        {errors.message && (
-          <p className="text-red-500">Message field is required</p>
+        {errors.subject && (
+          <p className="text-red-500">Subject field is required</p>
         )}
       </div>
       <Button type="submit">Send</Button>

@@ -14,7 +14,7 @@ type Inputs = {
   content: string;
 };
 
-const UserResponseForm = ({ topicId, refetch }: any) => {
+const AdminResponseForm = ({ topicId, refetch }: any) => {
   // Hooks
   const { axiosPost, isLoading, error } = useAxiosPost();
 
@@ -30,7 +30,7 @@ const UserResponseForm = ({ topicId, refetch }: any) => {
   // Submit handler
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const res = await axiosPost(
-      `/api/user/topic/${topicId}`,
+      `/api/admin/issue/${topicId}`,
       { ...data },
       user?.token
     );
@@ -49,7 +49,6 @@ const UserResponseForm = ({ topicId, refetch }: any) => {
         <Label htmlFor="message">Details message</Label>
         <Input
           id="message"
-          type="text"
           placeholder="Message..."
           {...register("content", { required: true })}
         />
@@ -71,4 +70,4 @@ const UserResponseForm = ({ topicId, refetch }: any) => {
   );
 };
 
-export default UserResponseForm;
+export default AdminResponseForm;

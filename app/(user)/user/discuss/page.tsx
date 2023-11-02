@@ -35,7 +35,7 @@ const UserDiscussPage = () => {
                   <div className="px-10 py-4 text-foreground flex justify-between items-center gap-4 ">
                     <div className="">
                       <h2 className="text-xl font-semibold">{item.title}</h2>
-                      <p>{item.message}</p>
+                      <p className="paragraph">{item.subject}</p>
                     </div>
                     <div className="flex items-center gap-1">
                       <BsChat size={20} />

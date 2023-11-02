@@ -8,14 +8,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import socket from "@/utils/socket";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
 const Notification = () => {
-  const router = useRouter();
   const [newTopics, setNewTopics] = useState<any>([]);
-  console.log(newTopics);
+  const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
 
   useEffect(() => {
     socket.on("new-topic", (data) => {
@@ -39,18 +37,18 @@ const Notification = () => {
           )}
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="mt-2 border-2 border-muted rounded-2xl p-2">
+      <DropdownMenuContent className="mt-2 border-2 border-muted rounded-2xl max-h-56 overflow-y-auto">
         <DropdownMenuLabel>
           {newTopics.length > 0 ? (
             newTopics.map((notification: any, index: number) => (
               <DropdownMenuItem key={index} className="cursor-pointer">
                 <Link href="/admin/messages">
-                  <p className="paragraph">
-                    An issue rised by {notification.user?.name.substring(0, 6)}
+                  <p className="text-sm tracking-wide text-white/80">
+                    An issue rised by {notification?.user?.name.substring(0, 6)}
                     ...
                   </p>
-                  <p className="paragraph">
-                    {notification.topic.title.substring(0, 25)}...
+                  <p className="text-sm tracking-wide text-white/80">
+                    {notification?.topic?.title.substring(0, 25)}...
                   </p>
                 </Link>
               </DropdownMenuItem>
