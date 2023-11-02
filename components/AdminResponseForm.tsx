@@ -2,7 +2,6 @@
 import { useAxiosPost } from "@/hooks/useAxiosPost";
 import { RootState } from "@/store/store";
 import socket from "@/utils/socket";
-import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import Loading from "./Loading";
@@ -16,18 +15,18 @@ type Inputs = {
 };
 
 const AdminResponseForm = ({ topicId, refetch }: any) => {
-  const [newMessage, setNewMessage] = useState<any>([]);
-  console.log("newMessage✅", newMessage);
+  // const [newMessage, setNewMessage] = useState<any>([]);
+  // console.log("newMessage✅", newMessage);
 
-  useEffect(() => {
-    socket.on("new-message", (data) => {
-      setNewMessage((prevNewMessage: any) => [...prevNewMessage, data]);
-    });
+  // useEffect(() => {
+  //   socket.on("new-message", (data) => {
+  //     setNewMessage((prevNewMessage: any) => [...prevNewMessage, data]);
+  //   });
 
-    return () => {
-      socket.off("new-message");
-    };
-  }, []);
+  //   return () => {
+  //     socket.off("new-message");
+  //   };
+  // }, []);
 
   // Hooks
   const { axiosPost, isLoading, error } = useAxiosPost();

@@ -27,10 +27,10 @@ const HomePage = () => {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="flex flex-col gap-3 rounded-2xl px-2 py-4 bg-card"
+              className="flex flex-col gap-3 rounded-2xl p-4 bg-card"
             >
               <div>
-                <h2 className="heading2">{feature.name}</h2>
+                <h2 className="heading2">{feature.title}</h2>
                 <p className="paragraph">{feature.description}</p>
                 <div className="mt-2">
                   {feature.status === "Completed" ? (

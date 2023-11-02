@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="wrapper py-6">
       <div className="flex justify-between gap-4 items-center">
         <p className="paragraph">
-          &copy; {currentYear} Reackr. All rights reserved.
+          &copy; {currentYear} Teackr. All rights reserved.
         </p>
         <ModeToggle />
       </div>

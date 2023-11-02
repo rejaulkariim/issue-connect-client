@@ -84,7 +84,7 @@
 }
 
 .heading1 {
-  @apply text-3xl md:text-4xl font-semibold text-foreground;
+  @apply text-2xl md:text-3xl font-semibold text-foreground;
 }
 .heading2 {
   @apply text-xl font-semibold;
