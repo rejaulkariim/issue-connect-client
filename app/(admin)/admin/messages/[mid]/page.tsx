@@ -4,31 +4,17 @@ import { Button } from "@/components/ui/button";
 import useSingleTopicFetch from "@/hooks/useSingleTopicFetch";
 import { formatedDate } from "@/lib/formateDate";
 import { RootState } from "@/store/store";
-import socket from "@/utils/socket";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useSelector } from "react-redux";
 
 const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
   const router = useRouter();
-  const [newMessage, setNewMessage] = useState<any>([]);
 
   const { topic, isLoading, refetch } = useSingleTopicFetch({
     params: params.mid,
   });
   const user = useSelector((state: RootState) => state?.user?.user);
-  console.log("newMessage", newMessage);
-
-  useEffect(() => {
-    socket.on("new-message", (data) => {
-      setNewMessage((prevNewMessage: any) => [...prevNewMessage, data]);
-    });
-
-    return () => {
-      socket.off("new-message");
-    };
-  }, []);
 
   return (
     <main className="wrapper section-padding min-h-[calc(100vh-4rem)]">

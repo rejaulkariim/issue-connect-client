@@ -39,7 +39,7 @@ const UserDiscussPage = () => {
                     </div>
                     <div className="flex items-center gap-1">
                       <BsChat size={20} />
-                      <span>{item?.response?.length}</span>
+                      <span>{item?.responses?.length}</span>
                     </div>
                   </div>
                 </li>
