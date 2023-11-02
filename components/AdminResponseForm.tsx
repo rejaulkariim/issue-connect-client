@@ -52,7 +52,7 @@ const AdminResponseForm = ({ topicId, refetch }: any) => {
       socket.emit("new-message", data);
       reset();
       refetch();
-      setNewMessage(data);
+      // setNewMessage(data);
       toast({ title: "Success🔥", description: "Message has been send" });
     }
   };
