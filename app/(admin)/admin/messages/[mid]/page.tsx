@@ -16,6 +16,8 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
   });
   const user = useSelector((state: RootState) => state?.user?.user);
 
+  console.log(topic);
+
   return (
     <main className="wrapper section-padding min-h-[calc(100vh-4rem)]">
       <div>
@@ -35,11 +37,11 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
         <div className="border-b pb-4">
           <div className="flex items-center gap-2 my-2">
             <div className="h-8 w-8 border-2 rounded-full bg-[#075571] flex justify-center items-center">
-              <p className="text-white">{user?.user.name[0]}</p>
+              <p className="text-white">{topic?.user.name[0]}</p>
             </div>
 
             <div className="flex items-center gap-2">
-              <p className="text-sm">{user?.user?.name}</p>
+              <p className="text-sm">{topic?.user?.name}</p>
               <p className="text-sm">{formatedDate(topic?.createdAt)}</p>
             </div>
           </div>
