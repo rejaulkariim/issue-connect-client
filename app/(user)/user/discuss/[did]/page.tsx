@@ -17,8 +17,6 @@ const DiscussDetailsPage = ({ params }: { params: { did: string } }) => {
   });
   const user = useSelector((state: RootState) => state?.user?.user);
 
-  console.log("Topic🔥:", topic);
-
   // const userResponses = topic?.responses?.filter(
   //   (response: any) => !response.isAdminResponse
   // );

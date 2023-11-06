@@ -16,6 +16,8 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
   });
   const user = useSelector((state: RootState) => state?.user?.user);
 
+  console.log("topic", topic);
+
   return (
     <main className="wrapper section-padding min-h-[calc(100vh-4rem)]">
       <div>
@@ -58,7 +60,7 @@ const MessageDetailsPage = ({ params }: { params: { mid: string } }) => {
 
               <div className="flex items-center gap-2">
                 <p className="text-sm">{item?.user?.name}</p>
-                <p className="text-sm">{formatedDate(topic?.createdAt)}</p>
+                <p className="text-sm">{formatedDate(item?.createdAt)}</p>
               </div>
             </div>
             <div>
